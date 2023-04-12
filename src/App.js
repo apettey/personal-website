@@ -15,7 +15,7 @@ import React, {useState} from "react";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import BookIcon from '@mui/icons-material/Book';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-import {green, grey, orange, red} from "@mui/material/colors";
+import {green, orange, red} from "@mui/material/colors";
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -52,7 +52,10 @@ function Copyright() {
 
 function App() {
     const [isTwitterLoaded, setIsTwitterLoaded] = useState(false);
-
+    logEvent(analytics, 'select_content', {
+        content_type: 'image',
+        content_id: 'P12453'
+    });
     return (
         <Container className="App">
             <Container maxWidth="sm">
