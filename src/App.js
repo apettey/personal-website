@@ -52,7 +52,7 @@ function Copyright() {
 
 function App() {
     const [isTwitterLoaded, setIsTwitterLoaded] = useState(false);
-    logEvent(analytics, 'select_content', {
+    analytics.logEvent('select_content', {
         content_type: 'image',
         content_id: 'P12453'
     });
