@@ -52,10 +52,6 @@ function Copyright() {
 
 function App() {
     const [isTwitterLoaded, setIsTwitterLoaded] = useState(false);
-    analytics.logEvent('select_content', {
-        content_type: 'image',
-        content_id: 'P12453'
-    });
     return (
         <Container className="App">
             <Container maxWidth="sm">
