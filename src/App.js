@@ -9,15 +9,14 @@ import {
     List,
     ListItemText,
     ListItem,
-    ListItemAvatar, Avatar
+    ListItemAvatar, Avatar, Grid
 } from "@mui/material";
 import React, {useState} from "react";
-import Grid2 from "@mui/material/Unstable_Grid2";
 import BookIcon from '@mui/icons-material/Book';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import {green, orange, red} from "@mui/material/colors";
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
+import {initializeApp} from 'firebase/app';
+import {getAnalytics} from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -61,8 +60,9 @@ function App() {
                     </Typography>
                 </Box>
             </Container>
-            <Grid2 container spacing={2}>
-                <Grid2 xs={4}>
+
+            <Grid container spacing={4}>
+                <Grid item xs={12} md={6}>
                     {isTwitterLoaded ? null : (<CircularProgress id={"Loader"}/>)}
                     <Timeline
                         dataSource={{sourceType: "profile", screenName: "AndrewPettey"}}
@@ -72,8 +72,8 @@ function App() {
                             setIsTwitterLoaded(1)
                         }}
                     />
-                </Grid2>
-                <Grid2 xs={4}>
+                </Grid>
+                <Grid item xs={12} md={6}>
                     <Typography variant="p" component="p">
                         This is my list of content that I have consumed that I believe is useful
                     </Typography>
@@ -82,7 +82,7 @@ function App() {
                                   href="https://docs.google.com/spreadsheets/d/1PDpLy5lvkLqLFIIONPTFQWGxLndo3yA_Jq0qIIBLlUg/edit?usp=sharing">
                             <ListItemAvatar>
                                 <Avatar sx={{bgcolor: 'transparent', color: red[500]}}>
-                                    <VideoLibraryIcon />
+                                    <VideoLibraryIcon/>
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText primary="YouTube Playlist"/>
@@ -107,8 +107,8 @@ function App() {
                         </ListItem>
 
                     </List>
-                </Grid2>
-            </Grid2>
+                </Grid>
+            </Grid>
             <Copyright/>
         </Container>
     );
