@@ -1,5 +1,4 @@
 import './App.css';
-import {Timeline} from 'react-twitter-widgets'
 import {
     Link,
     Typography,
@@ -9,12 +8,14 @@ import {
     List,
     ListItemText,
     ListItem,
-    ListItemAvatar, Avatar, Grid
+    ListItemAvatar, Avatar, Grid, ListItemButton
 } from "@mui/material";
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import React, {useState} from "react";
 import BookIcon from '@mui/icons-material/Book';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-import {green, orange, red} from "@mui/material/colors";
+import {blueGrey, green, lightBlue, orange, purple, red} from "@mui/material/colors";
 import {initializeApp} from 'firebase/app';
 import {getAnalytics} from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -38,19 +39,27 @@ const analytics = getAnalytics(app);
 
 function Copyright() {
     return (
-        <Typography variant="body2" color="text.secondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://andrew.pettey.me/">
-                Andrew Pettey
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
+        <Grid style={{
+            width: '100%',
+            position: 'fixed',
+            bottom: 0
+        }}
+              container spacing={4}>
+            <Grid item xs={12} md={6}>
+                <Typography variant="body2" color="text.secondary" align="center">
+                    {'Copyright © '}
+                    <Link color="inherit" href="https://andrew.pettey.me/">
+                        Andrew Pettey
+                    </Link>{' '}
+                    {new Date().getFullYear()}
+                    {'.'}
+                </Typography>
+            </Grid>
+        </Grid>
     );
 }
 
 function App() {
-    const [isTwitterLoaded, setIsTwitterLoaded] = useState(false);
     return (
         <Container className="App">
             <Container maxWidth="sm">
@@ -63,48 +72,86 @@ function App() {
 
             <Grid container spacing={4}>
                 <Grid item xs={12} md={6}>
-                    {isTwitterLoaded ? null : (<CircularProgress id={"Loader"}/>)}
-                    <Timeline
-                        dataSource={{sourceType: "profile", screenName: "AndrewPettey"}}
-                        options={{height: "600"}}
-                        onLoad={() => {
-                            console.log("Loaded Twitter")
-                            setIsTwitterLoaded(1)
-                        }}
-                    />
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} md={12} l={12}>
+                            <Typography variant="p" component="p" align="left">
+                                You can find me on Social Media below
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <ListItemButton button component="a" target="_blank"
+                                      href="https://twitter.com/AndrewPettey">
+                                <ListItemAvatar>
+                                    <Avatar sx={{bgcolor: 'transparent', color: lightBlue[500]}}>
+                                        <TwitterIcon/>
+                                    </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText primary="Twitter"/>
+                            </ListItemButton>
+                        </Grid>
+                        <Grid item>
+                            <ListItemButton component="a" target="_blank"
+                                      href="https://www.linkedin.com/in/andrew-pettey/">
+                                <ListItemAvatar>
+                                    <Avatar sx={{bgcolor: 'transparent', color: lightBlue[500]}}>
+                                        <LinkedInIcon/>
+                                    </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText primary="LinkedIn"/>
+                            </ListItemButton>
+                        </Grid>
+                    </Grid>
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Typography variant="p" component="p">
                         This is my list of content that I have consumed that I believe is useful
                     </Typography>
                     <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
-                        <ListItem button component="a" target="_blank"
-                                  href="https://docs.google.com/spreadsheets/d/1PDpLy5lvkLqLFIIONPTFQWGxLndo3yA_Jq0qIIBLlUg/edit?usp=sharing">
-                            <ListItemAvatar>
-                                <Avatar sx={{bgcolor: 'transparent', color: red[500]}}>
-                                    <VideoLibraryIcon/>
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="YouTube Playlist"/>
-                        </ListItem>
-                        <ListItem button component="a" target="_blank"
-                                  href="https://docs.google.com/spreadsheets/d/1PDpLy5lvkLqLFIIONPTFQWGxLndo3yA_Jq0qIIBLlUg/edit?usp=sharing">
+                        {/*<ListItemButton button component="a" target="_blank"*/}
+                        {/*          href="">*/}
+                        {/*    <ListItemAvatar>*/}
+                        {/*        <Avatar sx={{bgcolor: 'transparent', color: red[500]}}>*/}
+                        {/*            <VideoLibraryIcon/>*/}
+                        {/*        </Avatar>*/}
+                        {/*    </ListItemAvatar>*/}
+                        {/*    <ListItemText primary="YouTube Playlist"/>*/}
+                        {/*</ListItemButton>*/}
+                        <ListItemButton button component="a" target="_blank"
+                                  href="https://andy-pettey.notion.site/Management-Books-13c740d1b30a4776ac5946ae1586247a?pvs=4">
                             <ListItemAvatar>
                                 <Avatar sx={{bgcolor: 'transparent', color: green[500]}}>
                                     <BookIcon/>
                                 </Avatar>
                             </ListItemAvatar>
-                            <ListItemText primary="Tech Books"/>
-                        </ListItem>
-                        <ListItem button component="a" target="_blank"
-                                  href="https://docs.google.com/spreadsheets/d/1PDpLy5lvkLqLFIIONPTFQWGxLndo3yA_Jq0qIIBLlUg/edit?usp=sharing">
+                            <ListItemText primary="Management Books"/>
+                        </ListItemButton>
+                        <ListItemButton button component="a" target="_blank"
+                                  href="https://andy-pettey.notion.site/Self-help-737b395666434fdf963f83eea2d8219d?pvs=4">
                             <ListItemAvatar>
                                 <Avatar sx={{bgcolor: 'transparent', color: orange[500]}}>
                                     <BookIcon/>
                                 </Avatar>
                             </ListItemAvatar>
-                            <ListItemText primary="Management Books"/>
-                        </ListItem>
+                            <ListItemText primary="Self-help Books"/>
+                        </ListItemButton>
+                        <ListItemButton button component="a" target="_blank"
+                                  href="https://andy-pettey.notion.site/Self-help-737b395666434fdf963f83eea2d8219d?pvs=4">
+                            <ListItemAvatar>
+                                <Avatar sx={{bgcolor: 'transparent', color: blueGrey[500]}}>
+                                    <BookIcon/>
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText primary="Strategy"/>
+                        </ListItemButton>
+                        <ListItemButton button component="a" target="_blank"
+                                  href="https://andy-pettey.notion.site/Entrepreneurship-7e40038a44194097beb06247e5b23715?pvs=4">
+                            <ListItemAvatar>
+                                <Avatar sx={{bgcolor: 'transparent', color: purple[500]}}>
+                                    <BookIcon/>
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText primary="Entrepreneurship"/>
+                        </ListItemButton>
 
                     </List>
                 </Grid>
