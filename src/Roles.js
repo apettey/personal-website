@@ -1,7 +1,6 @@
-import {Grid, Collapse, Avatar} from '@mui/material';
+import {Grid, Collapse} from '@mui/material';
 import React, {useState} from 'react';
 import {ExpandLess, ExpandMore} from '@mui/icons-material';
-import {green} from '@mui/material/colors';
 
 /**
  * Generates a list of data
@@ -46,7 +45,8 @@ function Roles() {
                 }}/>
                 <h3>{roles[key].title}</h3>
               </Grid>
-              <Grid item lg={7} xs={7} md={7} key={'$key'}>
+              <Grid item lg={7} xs={7} md={7} key={'$key'}
+                style={{alignItems: 'center'}}>
                 <Collapse collapsedSize={200} in={expanded[key]}>
                   <p
                     style={{
@@ -57,29 +57,30 @@ function Roles() {
                     {roles[key].description}
                   </p>
                 </Collapse>
-                {expanded[key] ?
-                                        <Avatar sx={{
-                                          bgcolor: 'black',
-                                          color: green[500],
-                                        }}
-                                        onClick={() => {
-                                          setExpanded({
-                                            ...expanded,
-                                            [key]: false,
-                                          });
-                                        }}>
-                                          <ExpandLess/> </Avatar> :
-                                        <Avatar sx={{
-                                          bgcolor: 'yellow',
-                                          color: green[500],
-                                        }}
-                                        onClick={() => {
-                                          setExpanded({
-                                            ...expanded,
-                                            [key]: true,
-                                          });
-                                        }}>
-                                          <ExpandMore/> </Avatar>}
+                <Grid
+                  container
+                  spacing={0}
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <Grid item xs={3}>
+                    {expanded[key] ?
+                                  <ExpandLess onClick={() => {
+                                    setExpanded({
+                                      ...expanded,
+                                      [key]: false,
+                                    });
+                                  }}/> :
+                                <ExpandMore onClick={() => {
+                                  setExpanded({
+                                    ...expanded,
+                                    [key]: true,
+                                  });
+                                }}/>}
+                  </Grid>
+                </Grid>
+
               </Grid>
             </Grid>
           </Grid>
