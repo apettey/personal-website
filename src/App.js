@@ -4,18 +4,18 @@ import {
   Typography,
   Container,
   Box,
-  List,
   ListItemText,
   ListItemAvatar, Avatar, Grid, ListItemButton,
 } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import React from 'react';
-import BookIcon from '@mui/icons-material/Book';
-import {blueGrey, green, lightBlue, orange, purple}
+import Roles from './Roles';
+import {lightBlue}
   from '@mui/material/colors';
 import {initializeApp} from 'firebase/app';
 import {getAnalytics, logEvent} from 'firebase/analytics';
+import Books from './Books';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -71,6 +71,7 @@ function App() {
   return (
     <Container className="App">
       <Container maxWidth="sm">
+
         <Box sx={{my: 4}}>
           <Typography variant="h4" component="h1" gutterBottom>
                         Howzit!
@@ -79,7 +80,7 @@ function App() {
       </Container>
 
       <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <Grid container spacing={4}>
             <Grid item xs={12} md={12} l={12}>
               <Typography variant="p" component="p" align="left">
@@ -119,70 +120,17 @@ function App() {
               </ListItemButton>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="p" component="p">
-                        This is my list of content that I have consumed
-                        that I believe is useful
-          </Typography>
-          <List sx={{
-            width: '100%',
-            maxWidth: 360,
-            bgcolor: 'background.paper',
-          }}>
-            <ListItemButton button component="a" target="_blank"
-              href="https://andy-pettey.notion.site/Management-Books-13c740d1b30a4776ac5946ae1586247a?pvs=4">
-              <ListItemAvatar>
-                <Avatar sx={{bgcolor: 'transparent', color: green[500]}}>
-                  <BookIcon/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="Management Books"/>
-            </ListItemButton>
-            <ListItemButton button component="a" target="_blank"
-              href="https://andy-pettey.notion.site/Self-help-737b395666434fdf963f83eea2d8219d?pvs=4"
-              onClick={() => {
-                logEvent(analytics, 'click_book_link', {
-                  content_type: 'self-help',
-                });
-              }}>
-              <ListItemAvatar>
-                <Avatar sx={{bgcolor: 'transparent', color: orange[500]}}>
-                  <BookIcon/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="Self-help Books"/>
-            </ListItemButton>
-            <ListItemButton button component="a" target="_blank"
-              href="https://andy-pettey.notion.site/Self-help-737b395666434fdf963f83eea2d8219d?pvs=4"
-              onClick={() => {
-                logEvent(analytics, 'click_book_link', {
-                  content_type: 'strategy',
-                });
-              }}>
-              <ListItemAvatar>
-                <Avatar sx={{bgcolor: 'transparent', color: blueGrey[500]}}>
-                  <BookIcon/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="Strategy"/>
-            </ListItemButton>
-            <ListItemButton button component="a" target="_blank"
-              href="https://andy-pettey.notion.site/Entrepreneurship-7e40038a44194097beb06247e5b23715?pvs=4"
-              onClick={() => {
-                logEvent(analytics, 'click_book_link', {
-                  content_type: 'entrepreneurship',
-                });
-              }}>
-              <ListItemAvatar>
-                <Avatar sx={{bgcolor: 'transparent', color: purple[500]}}>
-                  <BookIcon/>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="Entrepreneurship"/>
-            </ListItemButton>
 
-          </List>
+          <Grid item xs={12} md={12}>
+
+            <Books/>
+
+          </Grid>
+        </Grid>
+        <Grid item xs={12} md={8}>
+
+          <Roles/>
+
         </Grid>
       </Grid>
       <Copyright/>
