@@ -44,14 +44,14 @@ function Copyright() {
   return (
     <Grid style={{
       width: '100%',
-      position: 'fixed',
       bottom: 0,
+      marginTop: '40px',
     }}
-    container spacing={4}>
-      <Grid item xs={12} md={6}>
+    container>
+      <Grid item xs={12} md={12}>
         <Typography variant="body2" color="text.secondary" align="center">
           {'Copyright © '}
-          <Link color="inherit" href="https://andrew.pettey.me/">
+          <Link color="inherit" href="https://andy.pettey.eu/">
                         Andrew Pettey
           </Link>{' '}
           {new Date().getFullYear()}
@@ -79,11 +79,21 @@ function App() {
         </Box>
       </Container>
 
-      <Grid container spacing={4}>
+      <Grid container>
         <Grid item xs={12} md={4}>
-          <Grid container spacing={4}>
+          <Grid container
+            alignItems="center"
+            justifyContent="center"
+            xs={{paddingBottom: '20px'}}>
+            <Grid item>
+              <img src={'./andy_pettey.jpeg'} style={{
+                maxWidth: '100%',
+                borderRadius: '50%',
+                border: '5px solid white',
+              }}/>
+            </Grid>
             <Grid item xs={12} md={12} l={12}>
-              <Typography variant="p" component="p" align="left">
+              <Typography variant="p" component="p" align="center">
                                 You can find me on Social Media below
               </Typography>
             </Grid>
@@ -127,7 +137,7 @@ function App() {
 
           </Grid>
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={8} sx={{paddingLeft: '20px'}}>
 
           <Roles/>
 

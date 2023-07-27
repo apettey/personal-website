@@ -15,9 +15,8 @@ import {logEvent} from 'firebase/analytics';
 function Books() {
   return (
     <div>
-      <Typography variant="p" component="p">
-                This is my list of content that I have consumed
-                that I believe is useful
+      <Typography variant="p" component="p" align='center'>
+                Useful books I have read grouped by categories
       </Typography>
       <List sx={{
         width: '100%',

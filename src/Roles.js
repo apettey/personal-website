@@ -1,4 +1,4 @@
-import {Grid, Collapse} from '@mui/material';
+import {Grid, Collapse, Typography} from '@mui/material';
 import React, {useState} from 'react';
 import {ExpandLess, ExpandMore} from '@mui/icons-material';
 
@@ -35,7 +35,7 @@ function Roles() {
     <Grid container>
       {!gettingRoles ? Object.keys(roles).map((key) => {
         return (
-          <Grid item key={key}>
+          <Grid item key={key} paddingBottom="20px">
             <Grid container>
               <Grid item lg={4} xs={4} md={4}>
                 <img src={roles[key].logo_url} style={{
@@ -43,19 +43,19 @@ function Roles() {
                   borderRadius: '50%',
                   border: '5px solid white',
                 }}/>
-                <h3>{roles[key].title}</h3>
+                <Typography variant='h5'>{roles[key].title}</Typography>
               </Grid>
               <Grid item lg={7} xs={7} md={7} key={'$key'}
                 style={{alignItems: 'center'}}>
                 <Collapse collapsedSize={200} in={expanded[key]}>
-                  <p
+                  <Typography variant='body1' align='left'
                     style={{
                       whiteSpace: 'pre-line',
                       textAlign: 'left',
                       width: '100%',
                     }}>
                     {roles[key].description}
-                  </p>
+                  </Typography>
                 </Collapse>
                 <Grid
                   container
