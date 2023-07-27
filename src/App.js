@@ -7,6 +7,7 @@ import {
   ListItemText,
   ListItemAvatar, Avatar, Grid, ListItemButton,
 } from '@mui/material';
+import '@fontsource/roboto/300.css';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import React from 'react';
@@ -85,7 +86,9 @@ function App() {
             alignItems="center"
             justifyContent="center"
             xs={{paddingBottom: '20px'}}>
-            <Grid item>
+            <Grid item sx={{
+              maxWidth: {sm: '30%', md: '70%', lg: '100%', xl: '100%'},
+            }}>
               <img src={'./andy_pettey.jpeg'} style={{
                 maxWidth: '100%',
                 borderRadius: '50%',
