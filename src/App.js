@@ -87,7 +87,8 @@ function App() {
             justifyContent="center"
             xs={{paddingBottom: '20px'}}>
             <Grid item sx={{
-              maxWidth: {xs: '30%', sm: '30%', md: '70%', lg: '100%', xl: '100%'},
+              maxWidth: {xs: '30%', sm: '30%',
+                md: '70%', lg: '100%', xl: '100%'},
             }}>
               <img src={'./andy_pettey.jpeg'} style={{
                 maxWidth: '100%',
