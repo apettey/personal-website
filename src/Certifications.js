@@ -1,5 +1,6 @@
 import {Box, Grid, Link, Typography} from '@mui/material';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {getAnalytics, logEvent} from 'firebase/analytics';
 
 /**
  *
@@ -7,6 +8,10 @@ import React from 'react';
  * @constructor
  */
 function Certifications() {
+  const [analytics, setAnalytics] = useState(null);
+  useEffect((analytics) => {
+    setAnalytics(getAnalytics());
+  });
   return (<Grid container>
     <Grid item xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}
     >
@@ -17,7 +22,11 @@ function Certifications() {
     </Grid>
     <Grid item xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
       <Link href="https://www.credly.com/badges/43aea8a1-8316-4c7e-a149-eaf987c4bf4f/public_url"
-        rel="noreferrer" target="_blank">
+        rel="noreferrer" target="_blank" onClick={() => {
+          logEvent(analytics, 'click_certifications', {
+            content_type: 'aws_solutions_arch',
+          });
+        }}>
         <Box component="img"
           sx={{
             maxWidth: {
@@ -30,7 +39,11 @@ function Certifications() {
     </Grid>
     <Grid item xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
       <Link href="https://www.credly.com/badges/0a61c27e-9051-452a-83aa-f7184b1e986d/public_url"
-        rel="noreferrer" target="_blank">
+        rel="noreferrer" target="_blank" onClick={() => {
+          logEvent(analytics, 'click_certifications', {
+            content_type: 'aws_developer',
+          });
+        }}>
         <Box component="img"
           sx={{
             maxWidth: {
@@ -43,7 +56,13 @@ function Certifications() {
     </Grid>
     <Grid item xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}
     >
-      <Link href="https://iapp.org/certify/cipt/" rel="noreferrer" target="_blank">
+      <Link href="https://iapp.org/certify/cipt/" rel="noreferrer" target="_blank"
+        onClick={() => {
+          logEvent(analytics, 'click_certifications', {
+            content_type: 'iapp_cipt',
+          });
+        }}
+      >
         <Box component="img"
           sx={{
             maxWidth: {

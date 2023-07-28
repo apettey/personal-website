@@ -78,7 +78,7 @@ function App() {
           <Typography variant="h2" component="h1" gutterBottom>
                         Howzit!
           </Typography>
-          <Typography variant="subtitle" component="subtitle" gutterBottom>
+          <Typography variant="subtitle" gutterBottom>
                         I am Andrew (Andy) Pettey
           </Typography>
         </Box>
@@ -145,7 +145,7 @@ function App() {
 
           </Grid>
           <Grid item>
-            <Certifications/>
+            <Certifications />
           </Grid>
         </Grid>
         <Grid item xs={12} md={8} sx={{paddingLeft: '20px'}}>

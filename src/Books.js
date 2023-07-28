@@ -2,17 +2,22 @@ import {
   Avatar, List, ListItemAvatar,
   ListItemButton, ListItemText, Typography,
 } from '@mui/material';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {blueGrey, green, orange, purple} from '@mui/material/colors';
 import BookIcon from '@mui/icons-material/Book';
-import {logEvent} from 'firebase/analytics';
+import {getAnalytics, logEvent} from 'firebase/analytics';
 
 /**
  *
+ * @param {any=} app
  * @return {JSX.Element}
  * @constructor
  */
 function Books() {
+  const [analytics, setAnalytics] = useState(null);
+  useEffect((analytics) => {
+    setAnalytics(getAnalytics());
+  });
   return (
     <div>
       <Typography variant="p" component="p" align='center'>
