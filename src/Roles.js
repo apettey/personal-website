@@ -32,7 +32,12 @@ function Roles() {
         });
   }
   return (
-    <Grid container>
+    <Grid container spacing={1}>
+      <Grid item>
+        <Typography variant="h4" padding="15px">
+                    Experience
+        </Typography>
+      </Grid>
       {!gettingRoles ? Object.keys(roles).map((key) => {
         return (
           <Grid item key={key} paddingBottom="20px">
@@ -43,7 +48,7 @@ function Roles() {
                   borderRadius: '50%',
                   border: '5px solid white',
                 }}/>
-                <Typography variant='h5'>{roles[key].title}</Typography>
+                <Typography variant='h6'>{roles[key].title}</Typography>
               </Grid>
               <Grid item lg={7} xs={7} md={7} key={'$key'}
                 style={{alignItems: 'center'}}>
@@ -64,21 +69,24 @@ function Roles() {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <Grid item xs={3}>
-                    {expanded[key] ?
-                                  <ExpandLess onClick={() => {
-                                    setExpanded({
-                                      ...expanded,
-                                      [key]: false,
-                                    });
-                                  }}/> :
-                                <ExpandMore onClick={() => {
-                                  setExpanded({
-                                    ...expanded,
-                                    [key]: true,
-                                  });
-                                }}/>}
-                  </Grid>
+                  { roles[key].description.length > 300 ?
+                    <Grid item xs={3}>
+
+                      {expanded[key] ?
+                                                <ExpandLess onClick={() => {
+                                                  setExpanded({
+                                                    ...expanded,
+                                                    [key]: false,
+                                                  });
+                                                }}/> :
+                                                <ExpandMore onClick={() => {
+                                                  setExpanded({
+                                                    ...expanded,
+                                                    [key]: true,
+                                                  });
+                                                }}/>}
+                    </Grid> : ''
+                  }
                 </Grid>
 
               </Grid>
