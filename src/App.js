@@ -94,7 +94,7 @@ function App() {
               maxWidth: {xs: '30%', sm: '30%',
                 md: '70%', lg: '100%', xl: '100%'},
             }}>
-              <img src={'./andy_pettey.jpeg'} style={{
+              <img src={'./personal_image.jpeg'} style={{
                 maxWidth: '100%',
                 borderRadius: '50%',
                 border: '5px solid white',
