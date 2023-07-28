@@ -11,7 +11,7 @@ import '@fontsource/roboto/300.css';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import React from 'react';
-import Roles from './Roles';
+import Experience from './Experience';
 import {lightBlue}
   from '@mui/material/colors';
 import {initializeApp} from 'firebase/app';
@@ -150,7 +150,7 @@ function App() {
         </Grid>
         <Grid item xs={12} md={8} sx={{paddingLeft: '20px'}}>
 
-          <Roles/>
+          <Experience/>
 
         </Grid>
       </Grid>

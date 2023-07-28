@@ -7,13 +7,13 @@ import {ExpandLess, ExpandMore} from '@mui/icons-material';
  * @return {JSX.Element}
  * @constructor
  */
-function Roles() {
+function Experience() {
   const [roles, setRoles] = useState({});
   const [expanded, setExpanded] = useState({});
   const [gettingRoles, setGettingRoles] = useState(false);
   if (!gettingRoles && Object.keys(roles).length === 0) {
     setGettingRoles(true);
-    fetch('data/roles.json')
+    fetch('data/experience.json')
         .then((r) => r.json()
             .then((json) => {
               Object.keys(json.roles)
@@ -42,12 +42,14 @@ function Roles() {
 
                 <Link href={roles[key].primary_link}
                   rel="noreferrer" target="_blank">
-                  <Box component="img" src={roles[key].logo_url} style={{
-                    minWidth: '150px',
-                    maxWidth: '100%',
-                    borderRadius: '50%',
-                    border: '5px solid white',
-                  }}/>
+                  <Box component="img" src={roles[key].logo.url}
+                    alt={roles[key].logo.alt_text}
+                    style={{
+                      minWidth: '150px',
+                      maxWidth: '100%',
+                      borderRadius: '50%',
+                      border: '5px solid white',
+                    }}/>
                 </Link>
                 <Typography variant='h6'>{roles[key].title}</Typography>
                 {roles[key].end_date ? <Typography variant='subtitle1'>
@@ -108,4 +110,4 @@ function Roles() {
   );
 }
 
-export default Roles;
+export default Experience;

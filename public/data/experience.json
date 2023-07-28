@@ -1,7 +1,10 @@
 {
   "roles": {
     "0": {
-      "logo_url": "wonder.jpeg",
+      "logo": {
+        "url": "wonder.jpeg",
+        "alt_text": "Wonder Technologies GmbH [wonder.me]"
+      },
       "title": "Chief Technology Officer",
       "start_date": "August 2021",
       "end_date": "April 2023",
@@ -9,7 +12,10 @@
       "primary_link": "https://www.wired.co.uk/article/berlin-hottest-startups-2021"
     },
     "1": {
-      "logo_url": "olxgroup.jpeg",
+      "logo": {
+        "url": "olxgroup.jpeg",
+        "alt_text": "OLX Group Logo"
+      },
       "title": "Engineering Manager",
       "start_date": "Oct 2018",
       "end_date": "July 2021",
@@ -17,7 +23,10 @@
       "primary_link": "https://www.olxgroup.com"
     },
     "2": {
-      "logo_url": "olxgroup.jpeg",
+      "logo": {
+        "url": "olxgroup.jpeg",
+        "alt_text": "OLX Group Logo"
+      },
       "title": "Senior Java Engineer",
       "start_date": "June 2017",
       "end_date": "Sept 2018",
@@ -25,7 +34,10 @@
       "primary_link": "https://www.olxgroup.com"
     },
     "3": {
-      "logo_url": "olxgroup.jpeg",
+      "logo": {
+        "url": "olxgroup.jpeg",
+        "alt_text": "OLX Group Logo"
+      },
       "title": "Lead Android Developer",
       "start_date": "Aug 2015",
       "end_date": "May 2017",
@@ -33,7 +45,10 @@
       "primary_link": "https://www.olxgroup.com"
     },
     "4": {
-      "logo_url": "tedxcapetown.jpeg",
+      "logo": {
+        "url": "tedxcapetown.jpeg",
+        "alt_text": "TedXCapeTown Logo"
+      },
       "title": "Android + API Event App Lead",
       "start_date": "Mar 2014",
       "end_date": "Aug 2014",
