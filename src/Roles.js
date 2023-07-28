@@ -46,6 +46,14 @@ function Roles() {
                   border: '5px solid white',
                 }}/>
                 <Typography variant='h6'>{roles[key].title}</Typography>
+                {roles[key].end_date ? <Typography variant='subtitle1'>
+                  {roles[key].start_date} - {roles[key].end_date}
+                </Typography> :
+                                        <Typography variant='subtitle1'>
+                                          {roles[key].start_date} - now
+                                        </Typography>
+                }
+
               </Grid>
               <Grid item xs={12} sm={12} lg={8} md={8} key={'$key'}
                 style={{alignItems: 'center'}}>
@@ -66,23 +74,23 @@ function Roles() {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  { roles[key].description.length > 300 ?
-                    <Grid item xs={3}>
+                  {roles[key].description.length > 300 ?
+                                            <Grid item xs={3}>
 
-                      {expanded[key] ?
-                                                <ExpandLess onClick={() => {
-                                                  setExpanded({
-                                                    ...expanded,
-                                                    [key]: false,
-                                                  });
-                                                }}/> :
-                                                <ExpandMore onClick={() => {
-                                                  setExpanded({
-                                                    ...expanded,
-                                                    [key]: true,
-                                                  });
-                                                }}/>}
-                    </Grid> : ''
+                                              {expanded[key] ?
+                                                    <ExpandLess onClick={() => {
+                                                      setExpanded({
+                                                        ...expanded,
+                                                        [key]: false,
+                                                      });
+                                                    }}/> :
+                                                    <ExpandMore onClick={() => {
+                                                      setExpanded({
+                                                        ...expanded,
+                                                        [key]: true,
+                                                      });
+                                                    }}/>}
+                                            </Grid> : ''
                   }
                 </Grid>
 
