@@ -17,6 +17,7 @@ import {lightBlue}
 import {initializeApp} from 'firebase/app';
 import {getAnalytics, logEvent} from 'firebase/analytics';
 import Books from './Books';
+import Certifications from './Certifications';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -139,6 +140,9 @@ function App() {
 
             <Books/>
 
+          </Grid>
+          <Grid item>
+            <Certifications/>
           </Grid>
         </Grid>
         <Grid item xs={12} md={8} sx={{paddingLeft: '20px'}}>
