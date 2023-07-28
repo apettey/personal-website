@@ -8,10 +8,6 @@ import {ExpandLess, ExpandMore} from '@mui/icons-material';
  * @constructor
  */
 function Roles() {
-  /**
-     *
-     * @return {JSX.Element}
-     */
   const [roles, setRoles] = useState({});
   const [expanded, setExpanded] = useState({});
   const [gettingRoles, setGettingRoles] = useState(false);
