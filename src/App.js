@@ -78,6 +78,9 @@ function App() {
           <Typography variant="h2" component="h1" gutterBottom>
                         Howzit!
           </Typography>
+          <Typography variant="subtitle" component="subtitle" gutterBottom>
+                        I am Andrew (Andy) Pettey
+          </Typography>
         </Box>
       </Container>
 
