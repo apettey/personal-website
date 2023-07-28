@@ -1,4 +1,4 @@
-import {Grid, Collapse, Typography, Box} from '@mui/material';
+import {Grid, Collapse, Typography, Box, Link} from '@mui/material';
 import React, {useState} from 'react';
 import {ExpandLess, ExpandMore} from '@mui/icons-material';
 
@@ -39,12 +39,16 @@ function Roles() {
           <Grid item key={key} paddingBottom="20px">
             <Grid container>
               <Grid item xs={12} sm={12} lg={4} md={4}>
-                <Box component="img" src={roles[key].logo_url} style={{
-                  minWidth: '150px',
-                  maxWidth: '100%',
-                  borderRadius: '50%',
-                  border: '5px solid white',
-                }}/>
+
+                <Link href={roles[key].primary_link}
+                  rel="noreferrer" target="_blank">
+                  <Box component="img" src={roles[key].logo_url} style={{
+                    minWidth: '150px',
+                    maxWidth: '100%',
+                    borderRadius: '50%',
+                    border: '5px solid white',
+                  }}/>
+                </Link>
                 <Typography variant='h6'>{roles[key].title}</Typography>
                 {roles[key].end_date ? <Typography variant='subtitle1'>
                   {roles[key].start_date} - {roles[key].end_date}
